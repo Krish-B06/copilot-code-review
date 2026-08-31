@@ -7,4 +7,4 @@ def divide(a, b):
 
 
 def percentage(value, percent):
-    return value * percent
+    return value * percent / 100

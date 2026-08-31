@@ -1,38 +1,43 @@
 ---
 name: code-review
-description: Perform a structured code review focusing on correctness, security, maintainability, testing, and requirements.
+description: "Use when reviewing pull requests or performing a manual local code review. Applies to changed source code and related tests, and requires findings to include severity, file and line, issue, impact, and recommended action."
 ---
 
-# Code Review Skill
+# Code Review
 
-Review the proposed code changes systematically.
+Use this skill to perform code reviews in two modes.
 
-## Review areas
+## Repository/Server Reviewer
 
-1. Correctness
-   - Identify bugs, incorrect logic, and edge cases.
-   - Verify that the implementation behaves as intended.
+Use this mode for newly created or updated pull requests.
 
-2. Security
-   - Identify potential security vulnerabilities.
-   - Check unsafe handling of inputs, data, and sensitive information.
-
-3. Maintainability
-   - Check code structure, readability, duplication, and complexity.
-
-4. Testing
-   - Check whether new or modified behavior is adequately tested.
-   - Identify important missing test cases.
-
-5. Requirements
-   - When requirement or acceptance-criteria information is available,
-     compare the implementation against it.
-   - Report unmet or partially implemented requirements separately.
-
-## Review principles
-
+- Review only changed source code and related tests.
 - Focus on actionable findings.
-- Prioritize correctness and security issues.
-- Explain why each finding matters.
-- Avoid purely stylistic comments unless they affect maintainability.
-- Do not report issues unrelated to the changed code.
+- Check for correctness and functional defects, security vulnerabilities, edge cases, performance issues, maintainability, test coverage, out-of-scope changes, and requirement or acceptance-criteria compliance when context is available.
+
+## Local VS Code Reviewer
+
+Use this mode when a developer manually invokes a review during implementation.
+
+- Review source code and tests with full local context.
+- Validate the implementation against requirements and acceptance criteria when they are available.
+- Surface issues that would block merge or warrant follow-up, even if the change is still in progress.
+
+## Finding Format
+
+Every finding must include:
+
+- Severity
+- File and line reference
+- Issue
+- Impact
+- Recommended action
+
+## Review Rules
+
+- Do not change source code as part of the review.
+- Do not create correction commits.
+- Do not push fixes.
+- Prefer concrete, falsifiable findings over broad commentary.
+- Do not report unrelated problems unless they are directly relevant to the review scope.
+- If no issues are found, say so explicitly and mention any remaining risks or coverage gaps.

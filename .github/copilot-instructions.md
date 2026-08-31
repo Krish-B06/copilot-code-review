@@ -1,36 +1,33 @@
-# Code Review Instructions
+# Copilot Instructions
 
-Review pull request changes for:
+When asked to review code in this repository, follow the code-review workflow described in `.github/skills/code-review/SKILL.md`.
 
-- Correctness and potential bugs
-- Security vulnerabilities
-- Test coverage
-- Maintainability
-- Unnecessary or out-of-scope changes
-- Requirements and acceptance criteria when available
+Use two reviewer modes:
 
-## Severity
+1. Repository/Server Reviewer
+   - Automatically reviews newly created and updated pull requests.
+   - Reviews changed source code and related tests only.
+   - Focuses on actionable findings that affect correctness, security, edge cases, performance, maintainability, test coverage, out-of-scope changes, and requirement or acceptance-criteria compliance when available.
 
-Classify findings as:
+2. Local VS Code Reviewer
+   - Is manually invoked by developers during development.
+   - Provides a comprehensive, context-sensitive review.
+   - Reviews source code and tests.
+   - Validates implementation against requirements and acceptance criteria when present in the request or nearby context.
 
-- Critical: Severe security, data loss, or system-breaking issues
-- High: Significant functional, security, or reliability issues
-- Medium: Important issues that should be addressed
-- Low: Minor quality or maintainability issues
-
-## Finding Format
-
-For each finding, provide:
+Review findings must include all of the following:
 
 - Severity
+- File and line reference
 - Issue
-- Why it matters
+- Impact
 - Recommended action
 
-## Review Principles
+Behavior constraints:
 
-- Focus on actionable findings.
-- Prioritize correctness, security, testing, and requirements.
-- Consider the overall PR context.
-- Avoid unrelated or purely stylistic findings.
 - Do not modify source code automatically.
+- Do not create correction commits.
+- Do not push fixes.
+- Prefer findings that are specific, actionable, and tied to a concrete code location.
+- Ignore unrelated files unless they are directly relevant to the review request or the changed behavior.
+- If there are no findings, state that clearly and mention any residual risks or testing gaps.
